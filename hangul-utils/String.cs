@@ -24,6 +24,8 @@ namespace hangul_utils
                 if (startConsonants <= calc && calc <= lastConsonants)
                 {
                     data[i] = (ushort)(first.IndexOf(value[i]) << 10);
+                    data[i] |= (ushort)(1 << 15);
+                    
                 }
                 else if (startHangul <= calc && calc <= lastHangul)
                 {
@@ -54,18 +56,34 @@ namespace hangul_utils
             var key = KoreaConvert(rhs);
             var search = KoreaConvert(korean);
 
-            for (int i = 0; i < key.Length; i++)
+            for (int i = 0; i < key.Length - search.Length + 1; i++)
             {
                 int size = 0;
 
                 for (int v = 0; v < search.Length; v++)
                 {
-                    if ((key[i + v] & search[v]) == search[v])
+                    // 검색에 자음 있음.
+                    if ((search[v] & (1 << 15)) == (1 << 15))
                     {
-                        size++;
-                    }else
+                        search[v] &= (0b0111_1111_1111_1111);
+                        if (key[i + v] >> 10 == search[v] >> 10)
+                        {
+                            size++;
+                        }else
+                        {
+                            break;
+                        }
+                    }
+                    else
                     {
-                        break;
+                        if ((key[i + v] & search[v]) == search[v])
+                        {
+                            size++;
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
 
