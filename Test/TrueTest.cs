@@ -40,5 +40,10 @@ namespace Test
         {
             Assert.IsTrue("안녕하세요".KoreaContains("안ㄴ하"), "기본적인 비교도 안됨");
         }
+        [TestMethod]
+        public void TestHanguleComponentPElem2()
+        {
+            Assert.IsTrue("안녕하세요".KoreaContains("안녀하"), "기본적인 비교도 안됨");
+        }
     }
 }
