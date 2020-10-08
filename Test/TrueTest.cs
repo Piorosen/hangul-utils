@@ -45,5 +45,11 @@ namespace Test
         {
             Assert.IsTrue("안녕하세요".KoreaContains("안녀하"), "기본적인 비교도 안됨");
         }
+
+        [TestMethod]
+        public void TestHanguleComponentPElem3()
+        {
+            Assert.IsTrue("테스트인 한국어 문법".KoreaContains("ㅌㅅㅌㅇ ㅎㄱㅇ ㅁㅂ"), "기본적인 비교도 안됨");
+        }
     }
 }
