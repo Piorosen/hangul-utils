@@ -14,6 +14,12 @@ namespace Test
         }
 
         [TestMethod]
+        public void TestHanguleMore()
+        {
+            Assert.IsTrue("abc 헬로웇".KoreaContains("c ㅎ"), "기본적인 비교도 안됨");
+        }
+
+        [TestMethod]
         public void TestHanguleFirst()
         {
             Assert.IsTrue("안녕하세요".KoreaContains("안녕"), "기본적인 비교도 안됨");
