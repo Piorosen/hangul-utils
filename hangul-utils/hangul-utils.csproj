@@ -3,6 +3,26 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>hangul_utils</RootNamespace>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>HangulUtilsAK</PackageId>
+    <PackageVersion>1.0</PackageVersion>
+    <Authors>Aoikazto</Authors>
+    <Description>한글을 비교 해줌니다.</Description>
+    <Copyright>AoiKazto</Copyright>
+    <NeutralLanguage>ko-KR</NeutralLanguage>
+    <PackageLicenseUrl>https://github.com/Piorosen/hangul-utils/blob/master/LICENSE</PackageLicenseUrl>
+    <Owners>AoiKazto</Owners>
+    <PackageProjectUrl>https://github.com/Piorosen/hangul-utils</PackageProjectUrl>
+    <PackageReleaseNotes>알파 릴리즈
+</PackageReleaseNotes>
+    <Summary>한글을 비교 해줌니다.</Summary>
+    <Title>HangulUtilsAK</Title>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.5-dev.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
